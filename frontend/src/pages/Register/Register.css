@@ -1,0 +1,89 @@
+:root {
+    --font-family: "Lexend Deca";
+    --primary-color: #569441;
+    --secundary-color: #efefef;
+    --black-color: #252525;
+    --btn-font: 1em;
+    --btn-weight: 600;
+}
+
+.container {
+    margin: 1.5% auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img {
+    border-radius: 15px;
+    height: 70vh; /* Fixed height for the image */
+}
+
+body {
+    padding: 0;
+    outline: none;
+    border: none;
+    background-color: #f8f8ec;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    text-align: left;
+}
+
+#registro {
+    background-color: #56944157;
+    border-radius: 30px;
+    width: 35%;
+    padding: 30px;
+    height: fit-content; /* Fixed height for the form */   
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+label, select, input, textarea {
+    width: 100%; /* Adjusted width for better responsiveness */
+}
+
+select, input[type="file"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    margin-top: 10%;
+    background-color: #efefef;
+    color: #252525;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--black-color);
+    color: var(--secundary-color);
+}
+
+input[type="file"] {
+    background-color: var(--secundary-color);
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #dddddd;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

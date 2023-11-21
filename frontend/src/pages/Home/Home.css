@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left-container h1 {
+    font-size: 2.5em;
+    margin: 20px;
+}
+
+.left-container,
+.right-container {
+    text-align: center;
+    padding: 0% 2% 2% 2%;
+}
+
+.right-container img{
+    height: 85vh;
+}
+
+.signup-btn,
+.register-btn {
+    margin: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #326F5E;
+    color: white;
+    width: 250px;
+    height: 50px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: all ease 0.5s;
+    outline: none;
+}
+
+
+
+.register-btn span{
+    width: 100%;
+}
+
+.signup-btn span,
+.register-btn span{
+    font-size: 1.5em;
+}       
+
+.signup-btn:hover,
+.register-btn:hover{
+    cursor: pointer;
+    background-color: #32506f31;
+    color: #252525;
+}
+
+.register-btn:hover{
+    color: #f8f8ec;
+}
+
+.middle-container{
+    background-color: #252525;
+    padding: 5%;
+}
+
+.middle-container h1{
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #f8f8ec;
+}
+
+.middle-container-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: #f8f8ec;
+}
+
+.middle-container-content img{
+    height: 65vh;
+}
+.middle-container-content p{
+    color: #f8f8ec;
+    font-size: 1em;
+    text-align: justify;
+}
+
+/* Estilo para a lista de motivos */
+.motivos-lista {
+    text-align: justify;
+    font-size: 1.5em;
+    list-style-type: none; /* Remover os marcadores padrão da lista */
+    padding: 0; /* Remover o preenchimento padrão da lista */
+}
+
+.motivos-lista li {
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+}
+
+/* Estilo para destacar os motivos */
+.motivos-lista li::before {
+    content: "\2022"; /* Adicionar um marcador de ponto (•) antes de cada motivo */
+    color: #0FB07C; /* Cor verde para combinar com o destaque no título */
+    display: inline-block;
+    width: 1em; /* Espaço entre o marcador e o texto */
+    margin-left: -1em; /* Mover o marcador para a esquerda */
+}
+
+
+.footer { 
+    margin-top: 50px;
+    color: #252525; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #252525;
+}
+
+.footer-social a {
+    font-size: 1.5em;
+    margin: 0 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer-social i {
+    transition: color 0.3s ease;
+}
+
+.footer-social i:hover {
+    color: #252525; 
+}
