@@ -69,11 +69,11 @@ export default function Register() {
                             Tipo de Material:
                         </label>
                         <select onChange={handleInputChange} id="tipoMaterial" name="tipoMaterial">
-                            <option value="papel">Papel</option>
-                            <option value="plastico">Plástico</option>
-                            <option value="vidro">Vidro</option>
-                            <option value="metal">Metal</option>
-                            <option value="organico">Orgânico</option>
+                            <option value="Papel">Papel</option>
+                            <option value="Plastico">Plástico</option>
+                            <option value="Vidro">Vidro</option>
+                            <option value="Metal">Metal</option>
+                            <option value="Organico">Orgânico</option>
                         </select>
                         <br></br>
                     </div>
@@ -95,10 +95,10 @@ export default function Register() {
                     <div className="form-group">
                         <label for="ecopoint">Selecione o Ecopoint:</label>
                         <select onChange={handleInputChange} id="ecopoint" name="ecopoint">
-                            <option value="ecopoint1">UM</option>
-                            <option value="ecopoint2">DOIS  </option>
-                            <option value="ecopoint3">TRRES</option>
-                            <option value="ecopoint4">QUATRO</option>
+                            <option value="1">São Paulo</option>
+                            <option value="2">São Caetano do Sul  </option>
+                            <option value="3">Ribeirão Preto</option>
+                            <option value="4">Santo André</option>
                         </select>
                         <br />
                     </div>

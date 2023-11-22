@@ -10,3 +10,11 @@
     gap: 10%;
 }
 
+
+.registers li{
+    margin: 2% auto;
+    background-color: #bbbbbb62;
+    width: fit;
+    padding: 2%;
+    border-radius: 15px;
+}

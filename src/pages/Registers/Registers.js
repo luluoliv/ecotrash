@@ -28,14 +28,14 @@ export default function Registers() {
         <div className="registers">
             <h2>Todas reciclagens</h2>
             {loading ? (
-                <p>Loading...</p>
+                <p>Carregando...</p>
             ) : (
                 <ul>
                     {recycles.map((recycle) => (
                         <li key={recycle.id}>
-                            <strong>Type:</strong> {recycle.type},{" "}
-                            <strong>Quantity:</strong> {recycle.quantity},{" "}
-                            <strong>Ecopoint:</strong> {recycle.ecopoint}
+                            <strong>Tipo de Material:</strong> {recycle.type},{" "}
+                            <strong>Quantidade:</strong> {recycle.quantity},{" "}
+                            <strong>Ecoponto:</strong> {recycle.ecopoint}
                         </li>
                     ))}
                 </ul>

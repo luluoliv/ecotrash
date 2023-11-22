@@ -21,7 +21,6 @@ const Navbar = () => {
                 <li>Sobre</li>
                 <li>Serviços</li>
                 <li>Contato</li>
-
                 <Link to={"/registros"}>
                     <button className="login-btn">
                         <span>Meus registros</span>
