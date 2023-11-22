@@ -46,7 +46,7 @@ export default function SignUp() {
         e.preventDefault();
 
         try {
-            await axios.post("http://guizen.pythonanywhere.com/users/", data, {
+            await axios.post("https://guizen.pythonanywhere.com/users/", data, {
                 headers: {
                     "Content-Type": "application/json",
                 },

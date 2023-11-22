@@ -41,7 +41,7 @@ export default function Register() {
 
         try {
             await axios.post(
-                "http://guizen.pythonanywhere.com/recycle/",
+                "https://guizen.pythonanywhere.com/recycle/",
                 data,
                 {
                     headers: {
