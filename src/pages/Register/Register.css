@@ -1,13 +1,14 @@
 :root {
     --font-family: "Lexend Deca";
-    --primary-color: #569441;
+    --primary-color: #5694419c;
     --secundary-color: #efefef;
     --black-color: #252525;
     --btn-font: 1em;
     --btn-weight: 600;
 }
 
-.container {
+
+.register-container {
     margin: 1.5% auto;
     display: flex;
     flex-direction: row;
@@ -15,7 +16,7 @@
     align-items: center;
 }
 
-.container img {
+.register-container img {
     border-radius: 15px;
     height: 70vh; /* Fixed height for the image */
 }
@@ -31,7 +32,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 2%;
     text-align: left;
 }
 
@@ -40,7 +41,7 @@ body {
     border-radius: 30px;
     width: 35%;
     padding: 30px;
-    height: fit-content; /* Fixed height for the form */   
+    height: fit; /* Fixed height for the form */   
 }
 
 h1, h2, h3 {
@@ -48,10 +49,13 @@ h1, h2, h3 {
 }
 
 label, select, input, textarea {
+    outline: none;
+    border: none;
     width: 100%; /* Adjusted width for better responsiveness */
 }
 
 select, input[type="file"] {
+    margin-top: 5%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -80,10 +84,55 @@ input[type="file"] {
     background-color: var(--secundary-color);
     border-radius: 10px;
 }
+#quantidade {
+    padding: 5px;
+    height: 5vh;
+    margin-top: 5%;
+}
 
 footer {
     background-color: #dddddd;
     color: #fff;
     text-align: center;
     padding: 10px;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.popup p {
+    margin-bottom: 10px;
+}
+
+.popup button {
+    background-color: #569441;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.popup button:hover {
+    background-color: #3b6724;
 }

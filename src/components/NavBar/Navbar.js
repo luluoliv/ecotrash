@@ -22,9 +22,9 @@ const Navbar = () => {
                 <li>Serviços</li>
                 <li>Contato</li>
 
-                <Link to={"/entrar"}>
+                <Link to={"/registros"}>
                     <button className="login-btn">
-                        <span>Entrar</span>
+                        <span>Meus registros</span>
                     </button>
                 </Link>
             </ul>

@@ -1,136 +1,157 @@
-import "../SignUp/SignUp.css";
 import { useState } from "react";
+import "../SignUp/SignUp.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
-
 export default function SignUp() {
-    const [errorPopup, setErrorPopup] = useState(false);
+    const [f_name, setFname] = useState("");
+    const [l_name, setLname] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const showErrorPopup = () => {
-        setErrorPopup(true);
-        setTimeout(() => {
-            setErrorPopup(false);
-        }, 3000);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupContent, setPopupContent] = useState("");
+
+    const data = {
+        f_name: f_name,
+        l_name: l_name,
+        cpf: cpf,
+        email: email,
+        password: password,
     };
 
-    const [showLoginForm, setShowLoginForm] = useState(false);
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === "f_name") setFname(value);
+        else if (name === "l_name") setLname(value);
+        else if (name === "cpf") setCpf(value);
+        else if (name === "email") setEmail(value);
+        else if (name === "password") setPassword(value);
+    };
 
-    const [formData, setFormData] = useState({
-        nome: "",
-        email: "",
-        cpf: "",
-        cep: "",
-        senha: "",
-    });
+    const showSuccessPopup = () => {
+        setPopupContent("Usuário registrado com sucesso!");
+        setShowPopup(true);
+    };
 
-    const handleChange = (e) => {   
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+    const showErrorPopup = () => {
+        setPopupContent("Erro ao registrar usuário");
+        setShowPopup(true);
+    };
+
+    const closePopup = () => {
+        setShowPopup(false);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(
-                "http://localhost:8001/coletor",
-                formData
-            );
-
-            if (response.status >= 200 && response.status < 300) {
-                console.log("Cadastro realizado com sucesso!");
-                setShowLoginForm(true);
-            } else {
-                console.error("Erro ao cadastrar. Código:", response.status);
-                showErrorPopup();
-            }
+            await axios.post("http://guizen.pythonanywhere.com/users/", data, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            console.log("Usuário registrado com sucesso!");
+            showSuccessPopup();
         } catch (error) {
-            console.error("Erro ao realizar a requisição:", error.message);
+            console.error("Erro ao registrar usuário:", error);
+            console.error("Response data:", error.response.data);
+            console.error("Response status:", error.response.status);
+            console.error("Erro ao registrar usuário:", error);
             showErrorPopup();
         }
     };
     return (
-        <div className="signup">
-            <div className="container">
-                {!showLoginForm ? (
-                    <form className="form" onSubmit={handleSubmit}>
-                        <h1>Cadastre-se</h1>
-                        <div className="form-group">
-                            <label htmlFor="nome">Nome:</label>
-                            <input
-                                type="text"
-                                id="nome"
-                                name="nome"
-                                placeholder="Digite seu nome"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">E-mail:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Digite seu e-mail"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="cpf">CPF:</label>
-                            <input
-                                type="text"
-                                id="cpf"
-                                name="cpf"
-                                placeholder="Digite seu CPF"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="cep">CEP:</label>
-                            <input
-                                type="text"
-                                id="cep"
-                                name="cep"
-                                placeholder="Digite seu CEP"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="senha">Senha:</label>
-                            <input
-                                type="password"
-                                id="senha"
-                                name="senha"
-                                placeholder="Digite sua senha"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <button type="submit" className="sign-btn">
-                            Cadastrar
-                        </button>
-                    </form>
-                ) : (
-                    <div className="login-form">
-                        <h1>Login</h1>
-
-                        <Link to={"/entrar"}>
-                            <button
-                                className="login-btn"
-                                onClick={() => setShowLoginForm(false)}
-                            >
-                                Voltar
-                            </button>
-                        </Link>
-                    </div>
-                )}
+        <form action="/" onSubmit={handleSubmit} className="sign-in-form">
+            <h2 className="title">Cadastre-se</h2>
+            <div className="input-field">
+                <i className="fas fa-user"></i>
+                <input
+                    type="text"
+                    placeholder="Nome"
+                    name="f_name"
+                    value={data.f_name}
+                    onChange={handleInputChange}
+                />
             </div>
-            {errorPopup && (
-                <div className="error-popup">
-                    <p>Ocorreu um erro. Tente novamente.</p>
+            <div className="input-field">
+                <i className="fas fa-user"></i>
+                <input
+                    type="text"
+                    placeholder="Sobrenome"
+                    name="l_name"
+                    value={data.l_name}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="input-field">
+                <i className="fas fa-user"></i>
+                <input
+                    type="text"
+                    placeholder="CPF"
+                    name="cpf"
+                    value={data.cpf}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="input-field">
+                <i className="fas fa-user"></i>
+                <input
+                    type="text"
+                    placeholder="CEP"
+                    name="cep"
+                    value={data.cep}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="input-field">
+                <i className="fas fa-user"></i>
+                <input
+                    type="text"
+                    placeholder="E-mail"
+                    name="email"
+                    value={data.email}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="input-field">
+                <i className="fas fa-lock"></i>
+                <input
+                    type="password"
+                    placeholder="Senha"
+                    name="password"
+                    value={data.password}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="field">
+                <input type="submit" value="Cadastrar" className="btn solid" />
+            </div>
+            <p className="social-text">Cadastre-se com as suas redes sociais</p>
+            <div className="social-media">
+                <a href="/" className="social-icon">
+                    <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="/" className="social-icon">
+                    <i className="fab fa-twitter"></i>
+                </a>
+                <a href="/" className="social-icon">
+                    <i className="fab fa-google"></i>
+                </a>
+                <a href="/" className="social-icon">
+                    <i className="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <p className="form-link">
+                New here? <a href="/">Sign up</a>
+            </p>
+
+            {showPopup && (
+                <div className="popup">
+                    <p>{popupContent}</p>
+                    <button onClick={closePopup}>OK</button>
                 </div>
             )}
-        </div>
+        </form>
     );
 }
